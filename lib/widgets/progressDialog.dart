@@ -15,15 +15,19 @@ class ProgressDialog extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(width: 6.0),
-              LinearProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.black),),
+              CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
               SizedBox(width: 26.0),
               Text(
-                message
+                message,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20
+                ),
               ),
             ],
           ),
-        )
-      )
+        ),
+      ),
     );
   }
 }
