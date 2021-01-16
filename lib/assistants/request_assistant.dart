@@ -11,10 +11,10 @@ class RequestAssistant {
         var decodeData = jsonDecode(jSonData);
         return decodeData;
       } else {
-        return "failed";
+        return "Failed";
       }
     } catch (exp) {
-      return "failed";
+      return "Failed";
     }
   }
 }

@@ -8,10 +8,10 @@ class ProgressDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        margin: EdgeInsets.all(15),
+        margin: EdgeInsets.all(5),
         width: double.infinity,
         child: Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(10.0),
           child: Row(
             children: [
               SizedBox(width: 6.0),
@@ -21,7 +21,7 @@ class ProgressDialog extends StatelessWidget {
                 message,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 20
+                  fontSize: 15
                 ),
               ),
             ],

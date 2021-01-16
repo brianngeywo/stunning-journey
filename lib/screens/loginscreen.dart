@@ -116,7 +116,7 @@ class LoginScreen extends StatelessWidget {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return ProgressDialog(
-            message: "loggin you in... ",
+            message: "logging you in... ",
           );
         });
     final User firebaseUser = (await _firebaseAuth
