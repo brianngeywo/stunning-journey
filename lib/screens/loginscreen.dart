@@ -54,6 +54,7 @@ class LoginScreen extends StatelessWidget {
                     TextField(
                       controller: passwordTextEditingController,
                       keyboardType: TextInputType.visiblePassword,
+                      obscureText: true,
                       decoration: InputDecoration(
                         labelText: "Enter your Password",
                         labelStyle: TextStyle(
@@ -132,7 +133,7 @@ class LoginScreen extends StatelessWidget {
     }))
         .user;
     if (firebaseUser != null) {
-      UsersRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
+      usersref.child(firebaseUser.uid).once().then((DataSnapshot snap) {
         if (snap.value != null) {
           displayToastMsg("you are now logged in", context);
 

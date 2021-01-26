@@ -7,8 +7,11 @@ import 'package:uber/DataHandler.dart/appData.dart';
 import 'package:uber/screens/SearchScreen.dart';
 import 'package:uber/screens/loginscreen.dart';
 import 'package:uber/screens/mainscreen.dart';
+import 'package:uber/screens/profile.dart';
 import 'package:uber/screens/registrationscreen.dart';
 import 'package:uber/screens/splashscreen.dart';
+import 'package:uber/screens/termsAndCondition.dart';
+import 'package:uber/screens/trips.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +19,7 @@ void main() async {
   runApp(MyApp());
 }
 
-DatabaseReference UsersRef =
+DatabaseReference usersref =
     FirebaseDatabase.instance.reference().child("users");
 
 class MyApp extends StatelessWidget {
@@ -25,19 +28,24 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AppData(),
       child: MaterialApp(
-        title: 'Safiri App',
+        title: 'GoTaxi',
         theme: ThemeData(
-          fontFamily: "Signatrar",
+          fontFamily: "Brand Regular",
           primaryColor: Colors.lightGreen[900],
           accentColor: Colors.lightGreen[50],
         ),
-        initialRoute: FirebaseAuth.instance.currentUser ==  null ? SplashScreen.idScreen : MainScreen.idScreen,
+        initialRoute: FirebaseAuth.instance.currentUser == null
+            ? SplashScreen.idScreen
+            : MainScreen.idScreen,
         routes: {
           RegistrationScreen.idScreen: (context) => RegistrationScreen(),
           LoginScreen.idScreen: (context) => LoginScreen(),
           MainScreen.idScreen: (context) => MainScreen(),
           SplashScreen.idScreen: (context) => SplashScreen(),
           SearchScreen.idScreen: (context) => SearchScreen(),
+          Trips.idScreen: (context) => Trips(),
+          Profile.idScreen: (context) => Profile(),
+          TermsAndConditions.idScreen: (context) => TermsAndConditions(),
         },
         debugShowCheckedModeBanner: false,
       ),

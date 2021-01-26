@@ -26,135 +26,138 @@ class _SearchScreenState extends State<SearchScreen> {
         : "enter pickup location";
     pickUpTextController.text = placeAddress;
     return Scaffold(
-      backgroundColor: Theme.of(context).accentColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: 175,
-              decoration: BoxDecoration(
-                color: Theme.of(context).accentColor,
-              ),
-              child: Padding(
-                padding:
-                    EdgeInsets.only(left: 25, top: 20, right: 25, bottom: 10),
-                child: Column(
-                  children: [
-                    SizedBox(height: 5),
-                    Stack(
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamedAndRemoveUntil(context,
-                                  MainScreen.idScreen, (route) => false);
-                            },
-                            child: Icon(Icons.arrow_back)),
-                        Center(
-                          child: Text(
-                            "Set drop off",
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 15),
-                    Row(
-                      children: [
-                        Image.asset("assets/images/pickicon.png",
-                            height: 15, width: 15),
-                        SizedBox(width: 18),
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.all(3),
-                              child: TextField(
-                                controller: pickUpTextController,
-                                decoration: InputDecoration(
-                                  hintText: "pick up location",
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  border: InputBorder.none,
-                                  isDense: true,
-                                  contentPadding: EdgeInsets.only(
-                                      left: 11, top: 8, bottom: 8),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 15),
-                    Row(
-                      children: [
-                        Image.asset("assets/images/desticon.png",
-                            height: 15, width: 15),
-                        SizedBox(width: 18),
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.all(3),
-                              child: TextField(
-                                onChanged: (val) {
-                                  findPlace(val);
-                                },
-                                controller: dropOffTextController,
-                                decoration: InputDecoration(
-                                  hintText: "drop off location",
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  border: InputBorder.none,
-                                  isDense: true,
-                                  contentPadding: EdgeInsets.only(
-                                      left: 11, top: 8, bottom: 8),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+      backgroundColor: Colors.white,
+      body: SafeArea(
+              child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: 175,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                 ),
-              ),
-            ),
-            Container(
-                padding: EdgeInsets.only(bottom: 20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                ),
-              ),
-              child: (placePredictionList.length > 0)
-                  ? Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 16),
-                      child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return PredictionTile(
-                            placePredictions: placePredictionList[index],
-                          );
-                        },
-                        separatorBuilder: (BuildContext context, index) =>
-                            DividerWidget(),
-                        itemCount: placePredictionList.length,
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(left: 25, top: 20, right: 25, bottom: 10),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 5),
+                      Stack(
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamedAndRemoveUntil(context,
+                                    MainScreen.idScreen, (route) => false);
+                              },
+                              child: Icon(Icons.arrow_back)),
+                          Center(
+                            child: Text(
+                              "Set drop off",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        ],
                       ),
-                    )
-                  : Container(),
-            ),
-          ],
+                      SizedBox(height: 15),
+                      Row(
+                        children: [
+                          Image.asset("assets/images/pickicon.png",
+                              height: 15, width: 15),
+                          SizedBox(width: 18),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(3),
+                                child: TextField(
+                                  controller: pickUpTextController,
+                                  decoration: InputDecoration(
+                                    hintText: "pick up location",
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.only(
+                                        left: 11, top: 8, bottom: 8),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 15),
+                      Row(
+                        children: [
+                          Image.asset("assets/images/desticon.png",
+                              height: 15, width: 15),
+                          SizedBox(width: 18),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(3),
+                                child: TextField(
+                                  onChanged: (val) {
+                                    findPlace(val);
+                                  },
+                                  controller: dropOffTextController,
+                                  decoration: InputDecoration(
+                                    hintText: "drop off location",
+                                    hintStyle: TextStyle(color: Colors.black),
+                                    fillColor: Colors.grey[200],
+                                    filled: true,
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.only(
+                                        left: 14, top: 10, bottom: 10),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                  padding: EdgeInsets.only(bottom: 20),
+                decoration: BoxDecoration(
+                  // color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: (placePredictionList.length > 0)
+                    ? Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 3, horizontal: 16),
+                        child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return PredictionTile(
+                              placePredictions: placePredictionList[index],
+                            );
+                          },
+                          separatorBuilder: (BuildContext context, index) =>
+                              DividerWidget(),
+                          itemCount: placePredictionList.length,
+                          shrinkWrap: true,
+                          physics: ClampingScrollPhysics(),
+                        ),
+                      )
+                    : Container(),
+              ),
+            ],
+          ),
         ),
       ),
     );

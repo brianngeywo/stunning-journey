@@ -160,7 +160,7 @@ class RegistrationScreen extends StatelessWidget {
       password: passwordTextEditingController.text,
     )
             .catchError((errMsg) {
-              Navigator.pop(context);
+      Navigator.pop(context);
       displayToastMsg(
           "dont worry, its not you, try again later" + errMsg.toString(),
           context);
@@ -172,7 +172,7 @@ class RegistrationScreen extends StatelessWidget {
         "email": emailTextEditingController.text.trim(),
         "phone": phoneTextEditingController.text.trim(),
       };
-      UsersRef.child(firebaseUser.uid).set(userDataMap);
+      usersref.child(firebaseUser.uid).set(userDataMap);
       displayToastMsg("you can now login to safiri app", context);
       Navigator.pushNamedAndRemoveUntil(
           context, MainScreen.idScreen, (route) => false);

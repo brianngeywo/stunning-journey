@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
               ),
               SizedBox(height: 30),
               Text(
-                "Safiri App",
+                "GoTaxi",
                 style: TextStyle(
                   fontFamily: "Brand Bold",
                   fontSize: 45,
